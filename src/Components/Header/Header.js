@@ -5,7 +5,7 @@ import logo from "../../Assets/Images/logo2.png";
 const Header = () => {
   return (
     <div>
-      <div className="navbar lg:justify-evenly text-slate-600 flex justify-between">
+      <div className="navbar lg:justify-evenly glass shadow-2xl shadow-slate-600/50 text-slate-600 flex justify-between">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
