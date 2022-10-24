@@ -6,7 +6,7 @@ import img3 from "../../Assets/Images/carosel-img/bg3.jpg";
 const Carosel = () => {
   return (
     <div>
-      <div className="carousel w-[80%] mx-auto rounded-2xl mt-14 shadow-2xl shadow-slate-600/80 lg:h-[45rem] h-[20rem] ">
+      <div className="carousel w-[95%] lg:w-[80%] mx-auto rounded-2xl mt-14 shadow-2xl shadow-slate-600/80 lg:h-[45rem] h-[20rem] ">
         <div id="slide1" className="carousel-item relative w-full">
           <img src={img1} className="w-full h-full" />
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">

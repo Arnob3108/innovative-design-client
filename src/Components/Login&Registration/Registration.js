@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../../Assets/Images/logo2.png";
 
 const Registration = () => {
   return (
     <div className="hero min-h-screen text-black">
       <div className="hero-content flex-col lg:flex-row-reverse glass rounded-2xl">
+        <div className="w-[20%] lg:w-full">
+          <img src={logo} alt="" />
+        </div>
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Registration now!</h1>
           <p className="py-6">
@@ -14,7 +18,7 @@ const Registration = () => {
           </p>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
-          <div className="card-body">
+          <from className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-black">Name</span>
@@ -69,7 +73,7 @@ const Registration = () => {
                 </small>
               </h1>
             </div>
-          </div>
+          </from>
         </div>
       </div>
     </div>

@@ -1,10 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
+import logo from "../../Assets/Images/logo2.png";
 
 const Login = () => {
   return (
     <div className="hero min-h-screen text-black">
       <div className="hero-content flex-col lg:flex-row-reverse glass rounded-2xl">
+        <div className="w-[20%] lg:w-full">
+          <img src={logo} alt="" />
+        </div>
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Login now!</h1>
           <p className="py-6">
@@ -14,7 +20,7 @@ const Login = () => {
           </p>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
-          <div className="card-body">
+          <from className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-black">Email</span>
@@ -40,12 +46,18 @@ const Login = () => {
                 </a>
               </label>
             </div>
-            <div className="flex items-center pt-4 space-x-1">
-              <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-              <p className=" text-sm text-black">Login with social accounts</p>
-              <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
+            <p className=" text-sm text-center text-black">
+              Login with social accounts
+            </p>
+            <div className="text-center text-3xl my-3">
+              <button>
+                <FcGoogle></FcGoogle>
+              </button>
+              <button className="ml-5">
+                <FaGithub></FaGithub>
+              </button>
             </div>
-            <div className="form-control mt-6">
+            <div className="form-control ">
               <button className="btn btn-primary">Login</button>
             </div>
             <div>
@@ -58,7 +70,7 @@ const Login = () => {
                 </small>
               </h1>
             </div>
-          </div>
+          </from>
         </div>
       </div>
     </div>
