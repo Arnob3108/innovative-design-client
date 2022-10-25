@@ -4,7 +4,7 @@ import CourseList from "./CourseList";
 
 const Courses = () => {
   return (
-    <div className="flex">
+    <div className="lg:flex ">
       <CourseList></CourseList>
       <CourseCards></CourseCards>
     </div>

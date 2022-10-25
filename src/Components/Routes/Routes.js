@@ -7,6 +7,8 @@ import Registration from "../Login&Registration/Registration";
 import Main from "./Main";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
+import SelectedCardDetails from "../Courses/SelectedCardDetails";
+import CardWithList from "../Courses/CardWithList";
 
 export const router = createBrowserRouter([
   {
@@ -42,6 +44,10 @@ export const router = createBrowserRouter([
       {
         path: "courses",
         element: <Courses></Courses>,
+      },
+      {
+        path: "card",
+        element: <CardWithList></CardWithList>,
       },
     ],
   },
