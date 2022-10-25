@@ -1,13 +1,20 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import logo from "../../Assets/Images/logo2.png";
 import { AuthContext } from "../../Context/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
+import toast from "react-hot-toast";
 
 const Login = () => {
-  const { googleProvider } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const { googleProvider, signIn } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
 
   const provider = new GoogleAuthProvider();
 
@@ -16,8 +23,32 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        toast.success("successfully login");
       })
-      .catch((error) => console.error(error));
+      .catch((error) => toast.error(error.message));
+  };
+
+  // email password login
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+        setError("");
+        navigate(from, { replace: true });
+        toast.success("login Successfull");
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error.message);
+        toast.error(error.message);
+      });
   };
 
   return (
@@ -27,13 +58,15 @@ const Login = () => {
         Innovative Design
       </h1>
 
-      <form className="mt-6">
+      <form onSubmit={handleSubmit} className="mt-6">
         <div>
           <label htmlFor="email" className="block text-sm text-slate-600">
             Email
           </label>
           <input
             type="email"
+            name="email"
+            required
             placeholder="Your Email"
             className="block w-full px-4 py-2 mt-2 shadow-inner text-slate-600 glass shadow-slate-500/80 border rounded-md dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
           />
@@ -54,10 +87,15 @@ const Login = () => {
 
           <input
             type="password"
+            name="password"
+            required
             placeholder="Your Password"
             className="block w-full px-4 py-2 mt-2 shadow-inner text-slate-600 glass shadow-slate-500/80 border rounded-md dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
           />
         </div>
+        <p>
+          <small className="text-red-600">{error}</small>
+        </p>
 
         <div className="mt-6">
           <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-indigo-700 focus:outline-none focus:bg-gray-600">

@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../Assets/Images/logo2.png";
 import { AuthContext } from "../../Context/AuthProvider";
 import { FaUser } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -10,8 +11,10 @@ const Header = () => {
 
   const handleLogOut = () => {
     logOut()
-      .then(() => {})
-      .catch((error) => console.error(error));
+      .then(() => {
+        toast.success("logout Success");
+      })
+      .catch((error) => toast.error(error.message));
   };
 
   return (
@@ -143,7 +146,7 @@ const Header = () => {
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               {user?.photoURL ? (
                 <div title={user?.displayName} className="w-10 rounded-full">
-                  <img src={user.photoURL} alt="" />
+                  <img src={user?.photoURL} alt="" />
                 </div>
               ) : (
                 <FaUser></FaUser>
@@ -162,7 +165,7 @@ const Header = () => {
 
               {user?.uid ? (
                 <li onClick={handleLogOut}>
-                  <Link to="">Logout</Link>
+                  <Link to="/login">Logout</Link>
                 </li>
               ) : (
                 <></>

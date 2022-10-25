@@ -1,8 +1,38 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../Assets/Images/logo2.png";
+import { AuthContext } from "../../Context/AuthProvider";
+import toast from "react-hot-toast";
 
 const Registration = () => {
+  const [error, setError] = useState("");
+  const { createUser } = useContext(AuthContext);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+
+    const name = form.name.value;
+    const photoUrl = form.photoUrl.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name, photoUrl, email, password);
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+        setError("");
+        toast.success("Registration Successfull");
+        toast.success("verify your email to login");
+      })
+      .catch((error) => {
+        setError(error.message);
+        toast.error(error.message);
+      });
+  };
+
   return (
     <div className="hero min-h-screen text-black">
       <div className="hero-content flex-col lg:flex-row-reverse glass rounded-2xl">
@@ -18,13 +48,14 @@ const Registration = () => {
           </p>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
-          <form className="card-body">
+          <form onSubmit={handleSubmit} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-black">Name</span>
               </label>
               <input
                 type="text"
+                name="name"
                 placeholder="Name"
                 className="input input-bordered shadow-inner glass shadow-slate-500/80"
               />
@@ -35,6 +66,7 @@ const Registration = () => {
               </label>
               <input
                 type="text"
+                name="photoUrl"
                 placeholder="Photo URL"
                 className="input input-bordered shadow-inner glass shadow-slate-500/80"
               />
@@ -44,7 +76,8 @@ const Registration = () => {
                 <span className="label-text text-black">Email</span>
               </label>
               <input
-                type="text"
+                type="email"
+                name="email"
                 placeholder="email"
                 className="input input-bordered shadow-inner glass shadow-slate-500/80"
               />
@@ -54,11 +87,15 @@ const Registration = () => {
                 <span className="label-text text-black">Password</span>
               </label>
               <input
-                type="text"
+                type="password"
+                name="password"
                 placeholder="password"
                 className="input input-bordered shadow-inner glass shadow-slate-500/80"
               />
             </div>
+            <p>
+              <small className="text-red-600">{error}</small>
+            </p>
 
             <div className="form-control mt-6">
               <button className="btn btn-primary">Registration Now</button>

@@ -4,6 +4,7 @@ import Home from "../Home/Home";
 import Login from "../Login&Registration/Login";
 import Registration from "../Login&Registration/Registration";
 import Main from "./Main";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -20,7 +21,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "blogs",
-        element: <Blogs></Blogs>,
+        element: (
+          <PrivateRoute>
+            <Blogs></Blogs>
+          </PrivateRoute>
+        ),
       },
       {
         path: "login",

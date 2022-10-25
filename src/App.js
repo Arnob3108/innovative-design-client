@@ -1,8 +1,8 @@
 import "./App.css";
 import background from "./Assets/Images/main.jpg";
-import Header from "./Components/Header/Header";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./Components/Routes/Routes";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
       style={{ backgroundImage: `url(${background})` }}
     >
       <RouterProvider router={router}></RouterProvider>
+      <Toaster></Toaster>
     </div>
   );
 }
