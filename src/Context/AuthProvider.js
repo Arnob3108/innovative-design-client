@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "../Firebase/firebase.config";
 
@@ -22,6 +23,11 @@ const AuthProvider = ({ children }) => {
     setLoadign(true);
     return signInWithPopup(auth, provider);
   };
+  // github sign in
+  const githubProvider = (provider) => {
+    setLoadign(true);
+    return signInWithPopup(auth, provider);
+  };
 
   // log out
   const logOut = () => {
@@ -33,6 +39,10 @@ const AuthProvider = ({ children }) => {
   const createUser = (email, password) => {
     setLoadign(true);
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const userProfileUpdate = (profile) => {
+    return updateProfile(auth.currentUser, profile);
   };
 
   // email password sign in
@@ -57,9 +67,11 @@ const AuthProvider = ({ children }) => {
     user,
     loading,
     googleProvider,
+    githubProvider,
     logOut,
     createUser,
     signIn,
+    userProfileUpdate,
   };
 
   return (

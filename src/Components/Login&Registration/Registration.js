@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 const Registration = () => {
   const [error, setError] = useState("");
-  const { createUser } = useContext(AuthContext);
+  const { createUser, userProfileUpdate } = useContext(AuthContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -16,20 +16,34 @@ const Registration = () => {
     const photoUrl = form.photoUrl.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, photoUrl, email, password);
+    // console.log(name, photoUrl, email, password);
 
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
-        form.reset();
         setError("");
+        form.reset();
+        handleUpdateProfile(name, photoUrl);
         toast.success("Registration Successfull");
         toast.success("verify your email to login");
       })
       .catch((error) => {
         setError(error.message);
         toast.error(error.message);
+      });
+  };
+
+  const handleUpdateProfile = (name, photoUrl) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoUrl,
+    };
+    userProfileUpdate(profile)
+      .then(() => toast.success("Profile Updated"))
+      .catch((error) => {
+        toast.error(error.message);
+        console.log(error);
       });
   };
 
@@ -51,12 +65,12 @@ const Registration = () => {
           <form onSubmit={handleSubmit} className="card-body">
             <div className="form-control">
               <label className="label">
-                <span className="label-text text-black">Name</span>
+                <span className="label-text text-black">Full Name</span>
               </label>
               <input
                 type="text"
                 name="name"
-                placeholder="Name"
+                placeholder="Full Name"
                 className="input input-bordered shadow-inner glass shadow-slate-500/80"
               />
             </div>

@@ -4,25 +4,41 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import logo from "../../Assets/Images/logo2.png";
 import { AuthContext } from "../../Context/AuthProvider";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import toast from "react-hot-toast";
 
 const Login = () => {
   const [error, setError] = useState("");
-  const { googleProvider, signIn } = useContext(AuthContext);
+  const { googleProvider, signIn, githubProvider } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
 
-  const provider = new GoogleAuthProvider();
+  // google sign in
+  const googleSignInProvider = new GoogleAuthProvider();
 
   const handleGoogleSignIn = () => {
-    googleProvider(provider)
+    googleProvider(googleSignInProvider)
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate(from, { replace: true });
+        toast.success("successfully login");
+      })
+      .catch((error) => toast.error(error.message));
+  };
+
+  // git hub sign in
+  const githubSignInProvider = new GithubAuthProvider();
+
+  const handleGithubSignIn = () => {
+    githubProvider(githubSignInProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(from, { replace: true });
         toast.success("successfully login");
       })
       .catch((error) => toast.error(error.message));
@@ -125,7 +141,10 @@ const Login = () => {
           <span className="hidden mx-2 sm:inline">Sign in with Google</span>
         </button>
 
-        <FaGithub className=" text-4xl  text-slate-600"></FaGithub>
+        <FaGithub
+          onClick={handleGithubSignIn}
+          className=" text-4xl  text-slate-600"
+        ></FaGithub>
       </div>
 
       <p className="mt-8 text-xs font-light text-center text-gray-400">

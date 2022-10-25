@@ -45,20 +45,20 @@ const Item = ({ title, children }) => {
 const Blogs = () => {
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-      <div class="max-w-xl sm:mx-auto lg:max-w-2xl">
-        <div class="flex flex-col mb-16 sm:text-center">
-          <Link to="/" class="mb-6 sm:mx-auto">
-            <div class="flex items-center justify-center w-20 h-20 rounded-full">
+      <div className="max-w-xl sm:mx-auto lg:max-w-2xl">
+        <div className="flex flex-col mb-16 sm:text-center">
+          <Link to="/" className="mb-6 sm:mx-auto">
+            <div className="flex items-center justify-center mx-auto w-20 h-20 rounded-full">
               <img src={logo} alt="" />
             </div>
           </Link>
-          <div class="max-w-xl md:mx-auto sm:text-center lg:max-w-2xl">
-            <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
-              <span class="relative inline-block">
+          <div className="max-w-xl md:mx-auto sm:text-center lg:max-w-2xl">
+            <h2 className="max-w-lg mb-6 text-center font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+              <span className="relative inline-block">
                 <svg
                   viewBox="0 0 52 24"
                   fill="currentColor"
-                  class="absolute top-0 left-16 z-0 hidden w-32 -mt-8 -ml-20 text-blue-gray-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block"
+                  className="absolute top-0 left-16 z-0 hidden w-32 -mt-8 -ml-20 text-blue-gray-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block"
                 >
                   <defs>
                     <pattern
@@ -77,14 +77,14 @@ const Blogs = () => {
                     height="24"
                   />
                 </svg>
-                <span class="relative">A</span> <br />
+                <span className="relative">A</span> <br />
               </span>{" "}
               <br />
               Modern Innovative Design Creator
             </h2>
           </div>
         </div>
-        <div class="space-y-4 text-slate-600">
+        <div className="space-y-4 text-slate-600">
           <Item title="what is cors in express.js?">
             CORS is a node.js package for providing a Connect/Express middleware
             that can be used to enable CORS with various options.

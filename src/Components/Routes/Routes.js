@@ -1,15 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
 import Blogs from "../Blogs/Blogs";
 import Home from "../Home/Home";
+import Courses from "../Courses/Courses";
 import Login from "../Login&Registration/Login";
 import Registration from "../Login&Registration/Registration";
 import Main from "./Main";
+import ErrorPage from "../ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -34,6 +37,10 @@ export const router = createBrowserRouter([
       {
         path: "registration",
         element: <Registration></Registration>,
+      },
+      {
+        path: "courses",
+        element: <Courses></Courses>,
       },
     ],
   },

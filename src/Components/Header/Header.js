@@ -144,7 +144,7 @@ const Header = () => {
 
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              {user?.photoURL ? (
+              {user?.uid ? (
                 <div title={user?.displayName} className="w-10 rounded-full">
                   <img src={user?.photoURL} alt="" />
                 </div>
