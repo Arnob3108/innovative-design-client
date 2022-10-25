@@ -1,9 +1,12 @@
 import React from "react";
+import CourseCards from "./CourseCards";
+import CourseList from "./CourseList";
 
 const Courses = () => {
   return (
-    <div>
-      <h1>this is courses</h1>
+    <div className="flex">
+      <CourseList></CourseList>
+      <CourseCards></CourseCards>
     </div>
   );
 };

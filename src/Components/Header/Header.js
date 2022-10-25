@@ -7,7 +7,6 @@ import toast from "react-hot-toast";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
 
   const handleLogOut = () => {
     logOut()
@@ -46,7 +45,9 @@ const Header = () => {
                 <Link to="home">Home</Link>
               </li>
               <li tabIndex={0}>
-                <Link className="justify-between">Courses</Link>
+                <Link to="courses" className="justify-between">
+                  Courses
+                </Link>
               </li>
               <li>
                 <Link to="faq">FAQ</Link>

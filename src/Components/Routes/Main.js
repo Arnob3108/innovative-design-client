@@ -1,13 +1,18 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
+import React, { createContext } from "react";
+import { Outlet, useLoaderData } from "react-router-dom";
 import Header from "../Header/Header";
 
+export const CoursesContext = createContext([]);
+
 const Main = () => {
+  const courses = useLoaderData();
+  console.log(courses);
+
   return (
-    <div>
+    <CoursesContext.Provider value={courses}>
       <Header></Header>
       <Outlet></Outlet>
-    </div>
+    </CoursesContext.Provider>
   );
 };
 
