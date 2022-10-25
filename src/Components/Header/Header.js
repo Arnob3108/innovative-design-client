@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../Assets/Images/logo2.png";
+import { AuthContext } from "../../Context/AuthProvider";
+import { FaUser } from "react-icons/fa";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div>
       <div className="navbar lg:justify-evenly shadow-2xl shadow-slate-600/50 text-slate-600 flex justify-between">
@@ -61,9 +72,15 @@ const Header = () => {
                   </svg>
                 </label>
                 <div>
-                  <Link to="login">
-                    <button className="btn text-black glass">LogIn</button>
-                  </Link>
+                  {user?.uid ? (
+                    <></>
+                  ) : (
+                    <Link to="login">
+                      <button className="btn text-black glass mx-5">
+                        LogIn
+                      </button>
+                    </Link>
+                  )}
                 </div>
               </div>
             </ul>
@@ -113,16 +130,24 @@ const Header = () => {
             </svg>
           </label>
           <div className="lg:flex hidden">
-            <Link to="login">
-              <button className="btn text-black glass mx-5">LogIn</button>
-            </Link>
+            {user?.uid ? (
+              <></>
+            ) : (
+              <Link to="login">
+                <button className="btn text-black glass mx-5">LogIn</button>
+              </Link>
+            )}
           </div>
 
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src="https://placeimg.com/80/80/people" />
-              </div>
+              {user?.photoURL ? (
+                <div title={user?.displayName} className="w-10 rounded-full">
+                  <img src={user.photoURL} alt="" />
+                </div>
+              ) : (
+                <FaUser></FaUser>
+              )}
             </label>
             <ul
               tabIndex={0}
@@ -134,9 +159,14 @@ const Header = () => {
                   <span className="badge">New</span>
                 </Link>
               </li>
-              <li>
-                <Link to="">Logout</Link>
-              </li>
+
+              {user?.uid ? (
+                <li onClick={handleLogOut}>
+                  <Link to="">Logout</Link>
+                </li>
+              ) : (
+                <></>
+              )}
             </ul>
           </div>
         </div>

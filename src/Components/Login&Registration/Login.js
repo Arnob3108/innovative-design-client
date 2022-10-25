@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import logo from "../../Assets/Images/logo2.png";
+import { AuthContext } from "../../Context/AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
+  const { googleProvider } = useContext(AuthContext);
+
+  const provider = new GoogleAuthProvider();
+
+  const handleGoogleSignIn = () => {
+    googleProvider(provider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div className="w-full mt-20 max-w-sm p-6 m-auto mx-auto bg-blue-200/50 rounded-md shadow-2xl">
       <img className="w-[30%] lg:w-[30%] mx-auto" src={logo} alt="" />
@@ -63,6 +78,7 @@ const Login = () => {
 
       <div className="flex items-center mt-6 -mx-2">
         <button
+          onClick={handleGoogleSignIn}
           type="button"
           className="flex items-center justify-center w-full px-6 py-2 mx-2 text-sm font-medium text-white transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:bg-blue-400 focus:outline-none"
         >
