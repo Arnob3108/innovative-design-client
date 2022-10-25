@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../Assets/Images/logo2.png";
 
 const Header = () => {
@@ -79,16 +79,16 @@ const Header = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
             <li>
-              <Link to="home">Home</Link>
+              <NavLink to="home">Home</NavLink>
             </li>
             <li tabIndex={0}>
-              <Link to="courses">Courses</Link>
+              <NavLink to="courses">Courses</NavLink>
             </li>
             <li>
-              <Link to="faq">FAQ</Link>
+              <NavLink to="faq">FAQ</NavLink>
             </li>
             <li>
-              <Link to="blogs">Blogs</Link>
+              <NavLink to="blogs">Blogs</NavLink>
             </li>
           </ul>
         </div>

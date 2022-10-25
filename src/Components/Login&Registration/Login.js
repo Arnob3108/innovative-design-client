@@ -6,73 +6,84 @@ import logo from "../../Assets/Images/logo2.png";
 
 const Login = () => {
   return (
-    <div className="hero min-h-screen text-black">
-      <div className="hero-content flex-col lg:flex-row-reverse glass rounded-2xl">
-        <div className="w-[20%] lg:w-full">
-          <img src={logo} alt="" />
+    <div className="w-full mt-20 max-w-sm p-6 m-auto mx-auto bg-blue-200/50 rounded-md shadow-2xl">
+      <img className="w-[30%] lg:w-[30%] mx-auto" src={logo} alt="" />
+      <h1 className="text-3xl font-semibold text-center text-slate-600">
+        Innovative Design
+      </h1>
+
+      <form className="mt-6">
+        <div>
+          <label for="email" className="block text-sm text-slate-600">
+            Email
+          </label>
+          <input
+            type="email"
+            placeholder="Your Email"
+            className="block w-full px-4 py-2 mt-2 shadow-inner text-slate-600 glass shadow-slate-500/80 border rounded-md dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+          />
         </div>
-        <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Login now!</h1>
-          <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
+
+        <div className="mt-4">
+          <div className="flex items-center justify-between">
+            <label for="password" className="block text-sm text-slate-600">
+              Password
+            </label>
+            <a
+              href="#"
+              className="text-xs text-gray-600 dark:text-gray-400 hover:underline"
+            >
+              Forget Password?
+            </a>
+          </div>
+
+          <input
+            type="password"
+            placeholder="Your Password"
+            className="block w-full px-4 py-2 mt-2 shadow-inner text-slate-600 glass shadow-slate-500/80 border rounded-md dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+          />
         </div>
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
-          <from className="card-body">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text text-black">Email</span>
-              </label>
-              <input
-                type="text"
-                placeholder="email"
-                className="input input-bordered shadow-inner glass shadow-slate-500/80"
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text text-black">Password</span>
-              </label>
-              <input
-                type="text"
-                placeholder="password"
-                className="input input-bordered shadow-inner glass shadow-slate-500/80"
-              />
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label>
-            </div>
-            <p className=" text-sm text-center text-black">
-              Login with social accounts
-            </p>
-            <div className="text-center text-3xl my-3">
-              <button>
-                <FcGoogle></FcGoogle>
-              </button>
-              <button className="ml-5">
-                <FaGithub></FaGithub>
-              </button>
-            </div>
-            <div className="form-control ">
-              <button className="btn btn-primary">Login</button>
-            </div>
-            <div>
-              <h1>
-                <small>
-                  Don't have an account?{" "}
-                  <Link className="font-bold text-blue-500" to="/registration">
-                    Create Account
-                  </Link>
-                </small>
-              </h1>
-            </div>
-          </from>
+
+        <div className="mt-6">
+          <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-indigo-700 focus:outline-none focus:bg-gray-600">
+            Login
+          </button>
         </div>
+      </form>
+
+      <div className="flex items-center justify-between mt-4">
+        <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/5"></span>
+
+        <div className="text-xs text-center text-gray-500 uppercase dark:text-gray-400">
+          or login with Social Media
+        </div>
+
+        <span className="w-1/5 border-b dark:border-gray-400 lg:w-1/5"></span>
       </div>
+
+      <div className="flex items-center mt-6 -mx-2">
+        <button
+          type="button"
+          className="flex items-center justify-center w-full px-6 py-2 mx-2 text-sm font-medium text-white transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:bg-blue-400 focus:outline-none"
+        >
+          <FcGoogle className="text-2xl"></FcGoogle>
+
+          <span className="hidden mx-2 sm:inline">Sign in with Google</span>
+        </button>
+
+        <FaGithub className=" text-4xl  text-slate-600"></FaGithub>
+      </div>
+
+      <p className="mt-8 text-xs font-light text-center text-gray-400">
+        {" "}
+        Don't have an account?{" "}
+        <Link
+          to="/registration"
+          className="font-medium text-slate-600 hover:underline"
+        >
+          Create One
+        </Link>
+      </p>
     </div>
   );
 };
