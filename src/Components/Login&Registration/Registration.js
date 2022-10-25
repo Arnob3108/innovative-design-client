@@ -18,7 +18,7 @@ const Registration = () => {
           </p>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
-          <from className="card-body">
+          <form className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-black">Name</span>
@@ -73,7 +73,7 @@ const Registration = () => {
                 </small>
               </h1>
             </div>
-          </from>
+          </form>
         </div>
       </div>
     </div>

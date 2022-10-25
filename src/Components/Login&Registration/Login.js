@@ -14,7 +14,7 @@ const Login = () => {
 
       <form className="mt-6">
         <div>
-          <label for="email" className="block text-sm text-slate-600">
+          <label htmlFor="email" className="block text-sm text-slate-600">
             Email
           </label>
           <input
@@ -26,7 +26,7 @@ const Login = () => {
 
         <div className="mt-4">
           <div className="flex items-center justify-between">
-            <label for="password" className="block text-sm text-slate-600">
+            <label htmlFor="password" className="block text-sm text-slate-600">
               Password
             </label>
             <a
