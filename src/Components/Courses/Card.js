@@ -4,7 +4,7 @@ import { CoursesContext } from "../Routes/Main";
 
 const Card = ({ course }) => {
   const { handleSelectCard } = useContext(CoursesContext);
-  const { name, img, price } = course;
+  const { name, img, price, url } = course;
 
   return (
     <div className="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
@@ -22,7 +22,7 @@ const Card = ({ course }) => {
           <span className="font-bold text-gray-800 dark:text-gray-200">
             {price}
           </span>
-          <Link to="/card">
+          <Link to={`/course/${url}`}>
             <button
               onClick={() => handleSelectCard(course)}
               className="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none"

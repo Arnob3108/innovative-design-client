@@ -9,6 +9,7 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import SelectedCardDetails from "../Courses/SelectedCardDetails";
 import CardWithList from "../Courses/CardWithList";
+import PremiumCourse from "../Courses/PremiumCourse";
 
 export const router = createBrowserRouter([
   {
@@ -46,8 +47,12 @@ export const router = createBrowserRouter([
         element: <Courses></Courses>,
       },
       {
-        path: "card",
+        path: "course/:id",
         element: <CardWithList></CardWithList>,
+      },
+      {
+        path: "course/:id/premium",
+        element: <PremiumCourse></PremiumCourse>,
       },
     ],
   },

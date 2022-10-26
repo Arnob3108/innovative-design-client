@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import { FcPrint } from "react-icons/fc";
+import { Link } from "react-router-dom";
 import { CoursesContext } from "../Routes/Main";
 
 const SelectedCardDetails = () => {
@@ -12,10 +14,18 @@ const SelectedCardDetails = () => {
     duration,
     software,
     video,
+    url,
   } = selectedCourse;
   return (
     <div className="w-full">
-      <div className="w-full lg:w-2/3 lg:ml-[35%] ml-[4%] lg:mt-[5%] max-w-sm overflow-hidden bg-white rounded-lg shadow-2xl shadow-slate-600 dark:bg-gray-800 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-700">
+      <button className="lg:ml-[95%] ml-[45%] mt-[2%]">
+        <FcPrint className="text-3xl"></FcPrint>
+      </button>
+      <h1 className="text-center text-4xl text-slate-700 font-bold mt-[1%]">
+        {name}
+      </h1>
+      {/* card */}
+      <div className="w-full lg:w-2/3 lg:ml-[35%] ml-[4%] lg:mt-[3%] max-w-sm overflow-hidden bg-white rounded-lg shadow-2xl shadow-slate-600 dark:bg-gray-800 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-700">
         <img
           className="object-cover object-center w-full h-56"
           src={img}
@@ -41,14 +51,19 @@ const SelectedCardDetails = () => {
             <h1 className="px-2 text-sm">Class Duration: {duration}</h1>
           </div>
 
-          <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
+          <div className="flex justify-between items-center mt-4 text-gray-700 dark:text-gray-200">
             <h1 className="px-2 text-sm">Price: {price}</h1>
+            <Link to={`/course/${url}/premium`}>
+              <button className="btn text-white font-bold bg-amber-500 hover:bg-amber-600">
+                Get Premium Access
+              </button>
+            </Link>
           </div>
         </div>
       </div>
       {/* video */}
       <div>
-        <section className="lg:w-2/3 lg:ml-[17%] ml-[4%] lg:mt-[5%]">
+        <section className="lg:w-2/3 lg:ml-[17%] ml-[1%] lg:mt-[3%]">
           <div className="container px-6 py-10 mx-auto">
             <h1 className="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl">
               explore our <br /> awesome{" "}
@@ -85,7 +100,7 @@ const SelectedCardDetails = () => {
 
                   <div className="mt-4 md:mx-4 md:mt-0">
                     <h1 className="text-2xl font-medium text-gray-700 capitalize dark:text-white">
-                      Copy & paste components
+                      Total Modeuls: {totalClass}
                     </h1>
                   </div>
                 </div>
@@ -112,7 +127,7 @@ const SelectedCardDetails = () => {
 
                   <div className="mt-4 md:mx-4 md:mt-0">
                     <h1 className="text-2xl font-medium text-gray-700 capitalize dark:text-white">
-                      Zero Configrations
+                      {software}
                     </h1>
                   </div>
                 </div>
@@ -145,7 +160,7 @@ const SelectedCardDetails = () => {
 
                   <div className="mt-4 md:mx-4 md:mt-0">
                     <h1 className="text-2xl font-medium text-gray-700 capitalize dark:text-white">
-                      elegant Dark Mode
+                      Video Duration: {duration}
                     </h1>
                   </div>
                 </div>
