@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    loader: () => fetch("http://localhost:5000/"),
+    loader: () => fetch("https://education-server-arnob3108.vercel.app/"),
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
@@ -48,7 +48,9 @@ export const router = createBrowserRouter([
         path: "course/:id",
         element: <CardWithList></CardWithList>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/course/${params.id}`),
+          fetch(
+            `https://education-server-arnob3108.vercel.app/course/${params.id}`
+          ),
       },
       {
         path: "course/:id/premium",
@@ -58,7 +60,9 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/course/${params.id}`),
+          fetch(
+            `https://education-server-arnob3108.vercel.app/course/${params.id}`
+          ),
       },
       {
         path: "profile",
