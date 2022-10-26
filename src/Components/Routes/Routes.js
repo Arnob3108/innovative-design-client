@@ -49,10 +49,18 @@ export const router = createBrowserRouter([
       {
         path: "course/:id",
         element: <CardWithList></CardWithList>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/course/${params.id}`),
       },
       {
         path: "course/:id/premium",
-        element: <PremiumCourse></PremiumCourse>,
+        element: (
+          <PrivateRoute>
+            <PremiumCourse></PremiumCourse>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/course/${params.id}`),
       },
     ],
   },

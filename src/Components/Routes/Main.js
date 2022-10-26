@@ -1,11 +1,13 @@
 import React, { createContext, useState } from "react";
 import { Outlet, useLoaderData } from "react-router-dom";
+
 import Header from "../Header/Header";
 
 export const CoursesContext = createContext([]);
 
 const Main = () => {
   const courses = useLoaderData();
+
   const [selectedCourse, setSelectedCourse] = useState();
 
   const handleSelectCard = (selected) => {

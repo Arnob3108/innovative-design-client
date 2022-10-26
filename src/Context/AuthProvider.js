@@ -72,6 +72,7 @@ const AuthProvider = ({ children }) => {
     createUser,
     signIn,
     userProfileUpdate,
+    setLoadign,
   };
 
   return (
