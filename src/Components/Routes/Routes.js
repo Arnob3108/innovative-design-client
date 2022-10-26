@@ -11,6 +11,7 @@ import SelectedCardDetails from "../Courses/SelectedCardDetails";
 import CardWithList from "../Courses/CardWithList";
 import PremiumCourse from "../Courses/PremiumCourse";
 import Profile from "../Profile/Profile";
+import Faq from "../Faq/Faq";
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ export const router = createBrowserRouter([
             <Profile></Profile>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "faq",
+        element: <Faq></Faq>,
       },
     ],
   },

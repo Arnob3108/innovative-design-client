@@ -64,9 +64,11 @@ const Registration = () => {
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Registration now!</h1>
           <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+            Graphic design is a craft where professionals create visual content
+            to communicate messages. By applying visual hierarchy and page
+            layout techniques, designers use typography and pictures to meet
+            users specific needs and focus on the logic of displaying elements
+            in interactive designs, to optimize the user experience.
           </p>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
