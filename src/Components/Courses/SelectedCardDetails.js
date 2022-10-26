@@ -1,5 +1,6 @@
 import React, { createRef } from "react";
 import { FcPrint } from "react-icons/fc";
+import ReactImageMagnify from "react-image-magnify";
 import { Link } from "react-router-dom";
 
 import Pdf from "react-to-pdf";
@@ -32,12 +33,26 @@ const SelectedCardDetails = ({ course }) => {
       </h1>
       {/* card */}
       <div className="w-full lg:w-2/3 lg:ml-[35%] ml-[4%] lg:mt-[3%] max-w-sm overflow-hidden bg-white rounded-lg shadow-2xl shadow-slate-600 dark:bg-gray-800 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-700">
-        <img
+        {/* <img
           className="object-cover object-center w-full h-56"
           src={img}
           alt="avatar"
+        /> */}
+        <ReactImageMagnify
+          className="object-cover object-center w-full h-56"
+          {...{
+            smallImage: {
+              alt: "course",
+              isFluidWidth: true,
+              src: `${img}`,
+            },
+            largeImage: {
+              src: `${img}`,
+              width: 1200,
+              height: 1800,
+            },
+          }}
         />
-
         <div className="flex items-center px-6 py-3 bg-gray-900">
           <h1 className="mx-3 text-lg font-semibold text-white">{name}</h1>
         </div>
