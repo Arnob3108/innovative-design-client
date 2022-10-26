@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const PremiumCourse = () => {
@@ -17,6 +18,22 @@ const PremiumCourse = () => {
     video,
     id,
   } = course;
+
+  const handleStaterPlan = () => {
+    Swal.fire(
+      "Congratulation!",
+      `Name: ${user.displayName} <br/> ${name} <br/> Purcheces success`,
+      "success"
+    );
+  };
+
+  const handlePremiumPlan = () => {
+    Swal.fire(
+      "Congratulation!",
+      `Name: ${user.displayName} <br/> Premium Plan <br/> Purcheces success`,
+      "success"
+    );
+  };
 
   return (
     <div className="relative w-full h-full">
@@ -185,8 +202,9 @@ const PremiumCourse = () => {
                 </li>
               </ul>
               <button
+                onClick={handleStaterPlan}
                 type="submit"
-                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
               >
                 Get Now
               </button>
@@ -206,7 +224,7 @@ const PremiumCourse = () => {
                 </p>
                 <div className="flex items-center justify-center">
                   <p className="mr-2 text-5xl font-semibold text-white lg:text-6xl">
-                    $59
+                    $20
                   </p>
                   <p className="text-lg text-gray-500">/ month</p>
                 </div>
@@ -314,6 +332,7 @@ const PremiumCourse = () => {
                 </li>
               </ul>
               <button
+                onClick={handlePremiumPlan}
                 type="submit"
                 className="inline-flex items-center justify-center w-full h-12 px-6 font-semibold tracking-wide text-black transition duration-200 rounded shadow-lg bg-teal-400 hover:bg-amber-500 focus:shadow-outline focus:outline-none"
               >

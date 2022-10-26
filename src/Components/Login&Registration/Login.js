@@ -9,7 +9,8 @@ import toast from "react-hot-toast";
 
 const Login = () => {
   const [error, setError] = useState("");
-  const { googleProvider, signIn, githubProvider } = useContext(AuthContext);
+  const { googleProvider, signIn, githubProvider, setLoading } =
+    useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -64,6 +65,9 @@ const Login = () => {
         console.log(error);
         setError(error.message);
         toast.error(error.message);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 

@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import SelectedCardDetails from "../Courses/SelectedCardDetails";
 import CardWithList from "../Courses/CardWithList";
 import PremiumCourse from "../Courses/PremiumCourse";
+import Profile from "../Profile/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -28,11 +29,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "blogs",
-        element: (
-          <PrivateRoute>
-            <Blogs></Blogs>
-          </PrivateRoute>
-        ),
+        element: <Blogs></Blogs>,
       },
       {
         path: "login",
@@ -61,6 +58,14 @@ export const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/course/${params.id}`),
+      },
+      {
+        path: "profile",
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
       },
     ],
   },

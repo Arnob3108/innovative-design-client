@@ -1,12 +1,16 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "../../Assets/Images/logo2.png";
 import { AuthContext } from "../../Context/AuthProvider";
 import toast from "react-hot-toast";
 
 const Registration = () => {
   const [error, setError] = useState("");
-  const { createUser, userProfileUpdate } = useContext(AuthContext);
+  const { createUser, userProfileUpdate, setLoading } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -25,12 +29,16 @@ const Registration = () => {
         setError("");
         form.reset();
         handleUpdateProfile(name, photoUrl);
+        navigate(from, { replace: true });
         toast.success("Registration Successfull");
         toast.success("verify your email to login");
       })
       .catch((error) => {
         setError(error.message);
         toast.error(error.message);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 

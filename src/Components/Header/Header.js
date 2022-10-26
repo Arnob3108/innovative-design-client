@@ -157,17 +157,18 @@ const Header = () => {
               tabIndex={0}
               className="mt-3 p-2 shadow menu menu-compact dropdown-content glass rounded-box w-52"
             >
-              <li>
-                <Link to="/profile" className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </Link>
-              </li>
-
               {user?.uid ? (
-                <li onClick={handleLogOut}>
-                  <Link to="/login">Logout</Link>
-                </li>
+                <div>
+                  <li>
+                    <Link to="/profile" className="justify-between">
+                      Profile
+                      <span className="badge">New</span>
+                    </Link>
+                  </li>
+                  <li onClick={handleLogOut}>
+                    <Link to="/login">Logout</Link>
+                  </li>
+                </div>
               ) : (
                 <></>
               )}
