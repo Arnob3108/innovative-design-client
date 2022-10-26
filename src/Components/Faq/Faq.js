@@ -36,29 +36,32 @@ const Faq = () => {
               </svg>
               <span className="relative">The</span>
             </span>{" "}
-            quick, brown fox jumps over a lazy dog
+            Graphics Design Make You Creative
           </h2>
           <p className="text-base text-gray-700 md:text-lg">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque rem aperiam, eaque ipsa quae.
+            Graphic design blogs can be a great resource to stay ahead of the
+            game, whether you’re trying to create presentable logos, prints,
+            product labels, or even online marketing materials meant to promote
+            a brand.
           </p>
         </div>
       </div>
       <div className="max-w-screen-xl sm:mx-auto">
-        <div className="grid grid-cols-1 gap-16 row-gap-8 lg:grid-cols-2">
+        <div className="grid grid-cols-1 text-black gap-16 row-gap-8 lg:grid-cols-2">
           <div className="space-y-8">
             <div>
               <p className="mb-4 text-xl font-medium">
-                The quick, brown fox jumps over a lazy dog?
+                Are you feeling stuck in a rut, behind the times, or out of the
+                loop?
               </p>
               <p className="text-gray-700">
-                Space, the final frontier. These are the voyages of the Starship
-                Enterprise. Its five-year mission: to explore strange new
-                worlds.
+                Then you maybe you need to broaden your horizons when it comes
+                to design blogs. To help you out, we've listed the 50 best
+                design blogs on the web today, ranging from old favourites to
+                brand-new upstarts.
                 <br />
                 <br />
-                Many say exploration is part of our destiny, but it’s actually
-                our duty to future generations.
+                ranging from old favourites to brand-new upstarts.
               </p>
             </div>
             <div>
