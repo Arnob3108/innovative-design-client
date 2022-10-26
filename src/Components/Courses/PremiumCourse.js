@@ -7,17 +7,7 @@ const PremiumCourse = () => {
   const { user } = useContext(AuthContext);
   const course = useLoaderData();
 
-  const {
-    img,
-    name,
-    discription,
-    price,
-    totalClass,
-    duration,
-    software,
-    video,
-    id,
-  } = course;
+  const { name, discription, price, id } = course;
 
   const handleStaterPlan = () => {
     Swal.fire(
@@ -40,7 +30,7 @@ const PremiumCourse = () => {
       <div className="absolute hidden w-full lg:block h-96" />
       <div className="relative px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-          <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+          <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-white sm:text-4xl md:mx-auto">
             <span className="relative inline-block">
               <svg
                 viewBox="0 0 52 24"
@@ -68,17 +58,20 @@ const PremiumCourse = () => {
             </span>{" "}
             for everyone
           </h2>
-          <h1 className="text-4xl font-bold text-slate-700 mb-[3%]">{name}</h1>
-          <p className="text-base text-gray-700 md:text-lg">{discription}</p>
+          <h1 className="text-4xl font-bold text-white mb-[3%]">{name}</h1>
+          <p className="text-base text-amber-500 font-semibold md:text-lg">
+            {discription}
+          </p>
           <div className="mt-[2%]">
-            <h1 className="text-2xl text-green-500 font-bold">
-              Your Name: {user.displayName}
+            <h1 className="text-2xl text-slate-400 lg:text-black font-bold">
+              Your Name:{" "}
+              <span className="text-amber-300">{user.displayName}</span>
             </h1>
-            <p className="text-xl text-slate-700 font-semibold">
-              Course Name: {name}
+            <p className="text-xl text-slate-400 lg:text-black font-semibold">
+              Course Name: <span className="text-amber-300">{name}</span>
             </p>
-            <p className="text-xl text-slate-700 font-semibold">
-              Course Id: {id}
+            <p className="text-xl text-slate-400 lg:text-black font-semibold">
+              Course Id: <span className="text-amber-300">{id}</span>
             </p>
           </div>
         </div>

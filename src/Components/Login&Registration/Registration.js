@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import logo from "../../Assets/Images/logo2.png";
+import logo from "../../Assets/Images/logo.png";
 import { AuthContext } from "../../Context/AuthProvider";
 import toast from "react-hot-toast";
 
@@ -25,7 +25,6 @@ const Registration = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         setError("");
         form.reset();
         handleUpdateProfile(name, photoUrl);
@@ -51,7 +50,6 @@ const Registration = () => {
       .then(() => toast.success("Profile Updated"))
       .catch((error) => {
         toast.error(error.message);
-        console.log(error);
       });
   };
 
@@ -79,6 +77,7 @@ const Registration = () => {
               </label>
               <input
                 type="text"
+                required
                 name="name"
                 placeholder="Full Name"
                 className="input input-bordered shadow-inner glass shadow-slate-500/80"
@@ -91,6 +90,7 @@ const Registration = () => {
               <input
                 type="text"
                 name="photoUrl"
+                required
                 placeholder="Photo URL"
                 className="input input-bordered shadow-inner glass shadow-slate-500/80"
               />
@@ -101,6 +101,7 @@ const Registration = () => {
               </label>
               <input
                 type="email"
+                required
                 name="email"
                 placeholder="email"
                 className="input input-bordered shadow-inner glass shadow-slate-500/80"
@@ -112,6 +113,7 @@ const Registration = () => {
               </label>
               <input
                 type="password"
+                required
                 name="password"
                 placeholder="password"
                 className="input input-bordered shadow-inner glass shadow-slate-500/80"

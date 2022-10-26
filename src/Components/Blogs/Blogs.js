@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../Assets/Images/logo2.png";
+import logo from "../../Assets/Images/logo.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Item = ({ title, children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    AOS.init({ duration: 800 });
+  }, []);
   return (
-    <div className="border rounded shadow-sm">
+    <div
+      data-aos="fade-up"
+      className="border-4 border-white hover:border-black rounded shadow-2xl shadow-indigo-600"
+    >
       <button
         type="button"
         aria-label="Open item"
@@ -13,11 +21,11 @@ const Item = ({ title, children }) => {
         className="flex items-center justify-between w-full p-4 focus:outline-none"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <p className="text-lg font-medium">{title}</p>
+        <p className="text-lg text-amber-500 font-bold">{title}</p>
         <div className="flex items-center justify-center w-8 h-8 border rounded-full">
           <svg
             viewBox="0 0 24 24"
-            className={`w-3 text-gray-600 transition-transform duration-200 ${
+            className={`w-3 text-white transition-transform duration-200 ${
               isOpen ? "transform rotate-180" : ""
             }`}
           >
@@ -35,7 +43,9 @@ const Item = ({ title, children }) => {
       </button>
       {isOpen && (
         <div className="p-4 pt-0">
-          <p className="text-gray-700">{children}</p>
+          <p className="lg:text-gray-700 text-white font-semibold">
+            {children}
+          </p>
         </div>
       )}
     </div>
@@ -53,7 +63,7 @@ const Blogs = () => {
             </div>
           </Link>
           <div className="max-w-xl md:mx-auto sm:text-center lg:max-w-2xl">
-            <h2 className="max-w-lg mb-6 text-center font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+            <h2 className="max-w-lg mb-6 text-center font-sans text-3xl font-bold leading-none tracking-tight text-white lg:text-gray-900 sm:text-4xl md:mx-auto">
               <span className="relative inline-block">
                 <svg
                   viewBox="0 0 52 24"

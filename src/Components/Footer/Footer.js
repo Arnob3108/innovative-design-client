@@ -1,11 +1,11 @@
 import React from "react";
-import logo from "../../Assets/Images/logo2.png";
+import logo from "../../Assets/Images/logo.png";
 
 const Footer = () => {
   return (
-    <div className="relative mt-16 glass text-black">
+    <div className="relative mt-16 glass text-white">
       <svg
-        className="absolute top-0 w-full h-6 -mt-5 sm:-mt-10 sm:h-16 text-blue-200/90"
+        className="absolute top-0 w-full h-6 -mt-5 sm:-mt-10 sm:h-16 text-indigo-700/40"
         preserveAspectRatio="none"
         viewBox="0 0 1440 54"
       >
@@ -217,8 +217,8 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex flex-col justify-between pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
-          <p className="text-sm text-gray-700">
-            © Copyright 2020 Lorem Inc. All rights reserved.
+          <p className="text-sm text-gray-400">
+            © Copyright 2022 Innovative Design. All rights reserved.
           </p>
           <div className="flex items-center mt-4 space-x-4 sm:mt-0">
             <a

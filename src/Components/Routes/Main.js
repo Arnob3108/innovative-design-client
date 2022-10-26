@@ -13,7 +13,6 @@ const Main = () => {
 
   const handleSelectCard = (selected) => {
     setSelectedCourse(selected);
-    console.log(selected);
   };
 
   const info = {

@@ -1,5 +1,5 @@
 import "./App.css";
-import background from "./Assets/Images/main.jpg";
+import background from "./Assets/Images/main2.jpg";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./Components/Routes/Routes";
 import { Toaster } from "react-hot-toast";

@@ -18,21 +18,18 @@ const SelectedCardDetails = ({ course }) => {
     video,
     id,
   } = course;
+
   return (
-    <div ref={ref} className="w-full">
-      <Pdf targetRef={ref} filename={`${name}.pdf`}>
-        {({ toPdf }) => (
-          <button className=" lg:ml-[95%] ml-[45%] mt-[1%]" onClick={toPdf}>
-            <FcPrint className="text-3xl"></FcPrint>
-          </button>
-        )}
-      </Pdf>
+    <div className="w-full">
       {/* pdf */}
-      <h1 className="text-center text-4xl text-slate-700 font-bold mt-[1%]">
+      <h1 className="text-center text-4xl text-white font-bold mb-10 lg:mb-10 mt-[1%]">
         {name}
       </h1>
       {/* card */}
-      <div className="w-full lg:w-2/3 lg:ml-[35%] ml-[4%] lg:mt-[3%] max-w-sm overflow-hidden bg-white rounded-lg shadow-2xl shadow-slate-600 dark:bg-gray-800 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-700">
+      <div
+        ref={ref}
+        className="w-full lg:w-2/3 lg:ml-[35%] ml-[4%] lg:mt-[3%] max-w-sm overflow-hidden bg-white rounded-lg shadow-2xl shadow-slate-600 dark:bg-gray-800 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-700"
+      >
         {/* <img
           className="object-cover object-center w-full h-56"
           src={img}
@@ -53,8 +50,16 @@ const SelectedCardDetails = ({ course }) => {
             },
           }}
         />
-        <div className="flex items-center px-6 py-3 bg-gray-900">
+
+        <div className="flex justify-between items-center px-6 py-3 bg-gray-900">
           <h1 className="mx-3 text-lg font-semibold text-white">{name}</h1>
+          <Pdf targetRef={ref} filename={`${name}.pdf`}>
+            {({ toPdf }) => (
+              <button className=" mt-[1%]" onClick={toPdf}>
+                <FcPrint className="text-3xl"></FcPrint>
+              </button>
+            )}
+          </Pdf>
         </div>
 
         <div className="px-6 py-4">
@@ -86,7 +91,7 @@ const SelectedCardDetails = ({ course }) => {
       <div>
         <section className="lg:w-2/3 lg:ml-[17%] ml-[1%] lg:mt-[3%]">
           <div className="container px-6 py-10 mx-auto">
-            <h1 className="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl">
+            <h1 className="text-3xl font-semibold text-white capitalize lg:text-4xl">
               explore our <br /> awesome{" "}
               <span className="text-blue-500">{name}</span>
             </h1>

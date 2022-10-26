@@ -7,11 +7,13 @@ import Sponsor from "./Sponsor";
 const Home = () => {
   return (
     <div>
-      <h1 className="text-center text-4xl text-slate-700 font-extrabold my-[5%]">
-        Welcome <br /> To Our <br />
-        <span className="text-blue-500 text-6xl">Innovative Design</span>{" "}
+      <h1 className="text-center text-xl lg:text-4xl text-white font-extrabold mt-[3%]">
+        Welcome <br /> To Our <br />{" "}
       </h1>
-      <h1 className="text-center text-4xl text-blue-500 font-extrabold my-[2%]">
+      <p className="text-white text-center text-2xl lg:text-5xl w-[60%] lg:w-[25%] mx-auto bg-blue-500/50 py-5 mt-3 font-bold px-3 rounded-2xl">
+        Innovative Design
+      </p>
+      <h1 className="text-center text-2xl lg:text-4xl text-blue-500 font-extrabold my-[2%]">
         Set Your{" "}
         <Link
           className=" transition ease-in-out hover:-translate-y-1 hover:text-blue-700 duration-500 "

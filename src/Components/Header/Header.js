@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../Assets/Images/logo2.png";
+import logo from "../../Assets/Images/logo.png";
 import { AuthContext } from "../../Context/AuthProvider";
 import { FaUser } from "react-icons/fa";
 import toast from "react-hot-toast";
@@ -18,7 +18,7 @@ const Header = () => {
 
   return (
     <div>
-      <div className="navbar lg:justify-evenly shadow-2xl shadow-slate-600/50 text-slate-600 flex justify-between">
+      <div className="navbar lg:justify-evenly shadow-2xl shadow-indigo-500/70 text-white flex justify-between">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -39,7 +39,7 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu glass text-slate-600 menu-compact dropdown-content mt-3 p-2 shadow  rounded-box w-52"
+              className="menu glass text-white menu-compact dropdown-content mt-3 p-2 shadow  rounded-box w-52"
             >
               <li>
                 <Link to="home">Home</Link>
@@ -80,7 +80,7 @@ const Header = () => {
                     <></>
                   ) : (
                     <Link to="login">
-                      <button className="btn text-black glass mx-5">
+                      <button className="btn text-white glass mx-5">
                         LogIn
                       </button>
                     </Link>
@@ -90,7 +90,7 @@ const Header = () => {
             </ul>
           </div>
           <Link to="/">
-            <button className="text-slate-600 w-24 flex h-16 normal-case text-xl font-bold">
+            <button className="text-white w-24 flex h-16 normal-case text-xl font-bold">
               {" "}
               <img className="w-full h-full" src={logo} alt="" />
               Innovative Design
@@ -138,7 +138,7 @@ const Header = () => {
               <></>
             ) : (
               <Link to="login">
-                <button className="btn text-black glass mx-5">LogIn</button>
+                <button className="btn text-white glass mx-5">LogIn</button>
               </Link>
             )}
           </div>

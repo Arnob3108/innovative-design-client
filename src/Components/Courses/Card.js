@@ -1,15 +1,24 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CoursesContext } from "../Routes/Main";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Card = ({ course }) => {
   const { handleSelectCard } = useContext(CoursesContext);
   const { name, img, price, id } = course;
 
+  useEffect(() => {
+    AOS.init({ duration: 800 });
+  }, []);
+
   return (
-    <div className="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
+    <div
+      data-aos="zoom-in-up"
+      className="flex flex-col items-center justify-center w-full max-w-sm mx-auto"
+    >
       <div
-        className="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-2xl shadow-slate-700"
+        className="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-2xl shadow-blue-700"
         style={{ backgroundImage: `url(${img})` }}
       ></div>
 

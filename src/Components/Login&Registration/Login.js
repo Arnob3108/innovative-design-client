@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
-import logo from "../../Assets/Images/logo2.png";
+import logo from "../../Assets/Images/logo.png";
 import { AuthContext } from "../../Context/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import toast from "react-hot-toast";
@@ -24,7 +24,6 @@ const Login = () => {
     googleProvider(googleSignInProvider)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         navigate(from, { replace: true });
         toast.success("successfully login");
       })
@@ -38,7 +37,6 @@ const Login = () => {
     githubProvider(githubSignInProvider)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         navigate(from, { replace: true });
         toast.success("successfully login");
       })
@@ -55,7 +53,6 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         form.reset();
         setError("");
         navigate(from, { replace: true });
@@ -97,10 +94,7 @@ const Login = () => {
             <label htmlFor="password" className="block text-sm text-slate-600">
               Password
             </label>
-            <a
-              href="#"
-              className="text-xs text-gray-600 dark:text-gray-400 hover:underline"
-            >
+            <a href="#" className="text-xs text-slate-600 hover:underline">
               Forget Password?
             </a>
           </div>
@@ -151,12 +145,12 @@ const Login = () => {
         ></FaGithub>
       </div>
 
-      <p className="mt-8 text-xs font-light text-center text-gray-400">
+      <p className="mt-8 text-xs font-light text-center text-gray-700">
         {" "}
         Don't have an account?{" "}
         <Link
           to="/registration"
-          className="font-medium text-slate-600 hover:underline"
+          className="font-medium text-indigo-600 hover:underline"
         >
           Create One
         </Link>
