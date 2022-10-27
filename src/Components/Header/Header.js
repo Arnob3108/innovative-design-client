@@ -144,15 +144,17 @@ const Header = () => {
           </div>
 
           <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              {user?.uid ? (
-                <div title={user?.displayName} className="w-10 rounded-full">
-                  <img src={user?.photoURL} alt="" />
-                </div>
-              ) : (
-                <FaUser></FaUser>
-              )}
-            </label>
+            <Link to="/profile">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                {user?.photoURL ? (
+                  <div title={user?.displayName} className="w-10 rounded-full">
+                    <img src={user?.photoURL} alt="" />
+                  </div>
+                ) : (
+                  <FaUser></FaUser>
+                )}
+              </label>
+            </Link>
             <ul
               tabIndex={0}
               className="mt-3 p-2 shadow menu menu-compact dropdown-content glass rounded-box w-52"

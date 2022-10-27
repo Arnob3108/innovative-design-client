@@ -24,6 +24,7 @@ const Login = () => {
     googleProvider(googleSignInProvider)
       .then((result) => {
         const user = result.user;
+        console.log(user);
         navigate(from, { replace: true });
         toast.success("successfully login");
       })
@@ -37,6 +38,7 @@ const Login = () => {
     githubProvider(githubSignInProvider)
       .then((result) => {
         const user = result.user;
+        console.log(user);
         navigate(from, { replace: true });
         toast.success("successfully login");
       })
@@ -53,6 +55,7 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
+        console.log(user);
         form.reset();
         setError("");
         navigate(from, { replace: true });

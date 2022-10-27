@@ -24,7 +24,7 @@ const Profile = () => {
 
       <div className="flex justify-end mt-4">
         <p className="text-xl font-medium text-blue-600 dark:text-blue-300">
-          {user?.displayName}
+          {user?.email}
         </p>
       </div>
     </div>
