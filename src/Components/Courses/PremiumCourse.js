@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const PremiumCourse = () => {
   const { user } = useContext(AuthContext);
   const course = useLoaderData();
+
+  const navigate = useNavigate();
 
   const { name, discription, price, id } = course;
 
@@ -15,6 +17,7 @@ const PremiumCourse = () => {
       `Name: ${user.displayName} <br/> ${name} <br/> Purcheces success`,
       "success"
     );
+    navigate("/");
   };
 
   const handlePremiumPlan = () => {
@@ -23,6 +26,7 @@ const PremiumCourse = () => {
       `Name: ${user.displayName} <br/> Premium Plan <br/> Purcheces success`,
       "success"
     );
+    navigate("/");
   };
 
   return (
