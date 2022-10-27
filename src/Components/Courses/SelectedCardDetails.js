@@ -79,7 +79,7 @@ const SelectedCardDetails = ({ course }) => {
 
           <div className="flex justify-between items-center mt-4 text-gray-700 dark:text-gray-200">
             <h1 className="px-2 text-sm">Price: {price}</h1>
-            <Link to={`/course/${id}/premium`}>
+            <Link to={`/course/checkOut/${id}/`}>
               <button className="btn text-white font-bold bg-amber-500 hover:bg-amber-600">
                 Get Premium Access
               </button>

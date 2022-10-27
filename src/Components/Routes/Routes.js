@@ -53,7 +53,7 @@ export const router = createBrowserRouter([
           ),
       },
       {
-        path: "course/:id/premium",
+        path: "course/checkOut/:id",
         element: (
           <PrivateRoute>
             <PremiumCourse></PremiumCourse>
@@ -61,7 +61,7 @@ export const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://education-server-arnob3108.vercel.app/course/${params.id}`
+            `https://education-server-arnob3108.vercel.app/course/checkOut/${params.id}`
           ),
       },
       {
